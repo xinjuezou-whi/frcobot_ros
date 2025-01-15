@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!-- author: xinjue.zou.whi@gmail.com -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!--link-->
+<xacro:macro name="link" params="name prefix:='' ixyz:= '0 0 0' irpy:='0 0 0' ixx:='0' ixy:='0' ixz:='0' iyy:='0' iyz:='0' izz:='0' mass:='0'
+  xyz:='0 0 0' rpy:='0 0 0' rgba:='1 1 1 1' stl_path:='' dae_path:='' gazebo:=false">
+  <!--sub-link defining detailed meshes for collision with environment-->
+  <link name="${prefix}${name}">
+    <inertial>
+      <origin xyz="${ixyz}" rpy="${irpy}"/>
+      <mass value="${mass}"/>
+      <inertia ixx="${ixx}" ixy="${ixy}" ixz="${ixz}" iyy="${iyy}" iyz="${iyz}" izz="${izz}"/>
+    </inertial>
+    <visual>
+      <origin xyz="${xyz}" rpy="${rpy}"/>
+      <geometry>
+        <xacro:if value="${dae_path == ''}">
+          <mesh filename="${stl_path}"/>
+        </xacro:if>
+        <xacro:unless value="${dae_path == ''}">
+          <mesh filename="${dae_path}"/>
+        </xacro:unless>
+      </geometry>
+      <material name="">
+        <color rgba="${rgba}" />
+      </material>
+    </visual>
+    <collision>
+     <origin xyz="${xyz}" rpy="${rpy}"/>
+      <geometry>
+        <mesh filename="${stl_path}"/>
+      </geometry>
+      <material name="">
+        <color rgba="${rgba}" />
+      </material>
+    </collision>
+    <xacro:if value="${gazebo}">
+      <xacro:inertial_props name="${name}"/>
+    </xacro:if>
+  </link>
+</xacro:macro>
+
+<!-- joint -->
+<xacro:macro name="joint" params="name parent child type:='revolute' prefix:='' origin:='0 0 0' rpy:='0 0 0' axis:='0 0 1'
+  lower:='-6.28' upper:='6.28' effort:='0' velocity:='3.14' soft_lower:='1.0' soft_upper:='1.0' k_position:='15' k_velocity:='10'">
+    <joint name="${prefix}${name}" type="${type}">
+      <origin xyz="${origin}" rpy="${rpy}"/>
+      <parent link="${prefix}${parent}"/>
+      <child link="${prefix}${child}"/>
+      <axis xyz="${axis}"/>
+      <limit lower="${lower}" upper="${upper}" effort="${effort}" velocity="${velocity}"/>
+      <safety_controller soft_lower_limit="${soft_lower}" soft_upper_limit="${soft_upper}" k_position="${k_position}" k_velocity="${k_velocity}"/>
+    </joint>
+</xacro:macro>
+
+</robot>
