@@ -1,14 +1,13 @@
 <launch>
-  <!-- Define the controller manager plugin to use for trajectory execution -->
+
+  <!-- execute the trajectory in 'interpolate' mode or jump to goal position in 'last point' mode -->
+  <arg name="fake_execution_type" default="interpolate" />
+
   <arg name="moveit_controller_manager" default="moveit_simple_controller_manager/MoveItSimpleControllerManager" />
+  <!-- Set the param that trajectory_execution_manager needs to find the controller plugin -->
   <param name="moveit_controller_manager" value="$(arg moveit_controller_manager)"/>
 
-  <!-- load controller_list -->
-  <arg name="use_controller_manager" default="true" />
-  <param name="use_controller_manager" value="$(arg use_controller_manager)" />
+  <!-- The rest of the params are specific to this plugin -->
+  <rosparam subst_value="true" file="$(find fr5v6_moveit_config)/config/ros_controllers.yaml"/>
 
-  <!-- loads ros_controllers to the param server -->
-  <rosparam file="$(find fr5v6_moveit_config)/config/real_controllers.yaml"/>
-  <!-- loads controller list to the param server -->
-  <!-- <rosparam file="$(find fr5v6_moveit_config)/config/ros_controllers.yaml"/> -->
 </launch>

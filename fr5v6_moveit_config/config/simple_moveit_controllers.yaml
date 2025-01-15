@@ -1,7 +1,8 @@
 controller_list:
-  - name: whi_arm_interface/controllers/scaled_pos_controller
+  - name: fr5v6_controller
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory
+    default: True
     joints:
       - j1
       - j2
@@ -9,6 +10,3 @@ controller_list:
       - j4
       - j5
       - j6
-initial:  # Define initial robot poses per group
-  - group: fr5v6
-    pose: home
