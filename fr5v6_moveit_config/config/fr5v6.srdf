@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--This does not replace URDF, and is not an extension of URDF.
     This is a format for representing semantic information about the robot structure.
     A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
@@ -26,23 +26,39 @@
         <joint name="j5" value="0"/>
         <joint name="j6" value="0"/>
     </group_state>
-    <group_state name="home" group="fr5v6">
+    <group_state name="up" group="fr5v6">
         <joint name="j1" value="0"/>
-        <joint name="j2" value="-1.4189"/>
-        <joint name="j3" value="-1.5152"/>
-        <joint name="j4" value="-0.0015"/>
-        <joint name="j5" value="1.6031"/>
-        <joint name="j6" value="0.5569"/>
+        <joint name="j2" value="-1.5708"/>
+        <joint name="j3" value="0"/>
+        <joint name="j4" value="0"/>
+        <joint name="j5" value="0"/>
+        <joint name="j6" value="0"/>
+    </group_state>
+    <group_state name="ready" group="fr5v6">
+        <joint name="j1" value="0"/>
+        <joint name="j2" value="-1.0471"/>
+        <joint name="j3" value="2.0943"/>
+        <joint name="j4" value="-4.1887"/>
+        <joint name="j5" value="-1.5707"/>
+        <joint name="j6" value="0"/>
+    </group_state>
+    <group_state name="fold" group="fr5v6">
+        <joint name="j1" value="0"/>
+        <joint name="j2" value="0.6981"/>
+        <joint name="j3" value="-2.2689"/>
+        <joint name="j4" value="1.47"/>
+        <joint name="j5" value="1.5707"/>
+        <joint name="j6" value="0"/>
     </group_state>
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
-    <disable_collisions link1="base_link" link2="j1_Link" reason="Adjacent" />
-    <disable_collisions link1="base_link" link2="j2_Link" reason="Never" />
-    <disable_collisions link1="j1_Link" link2="j2_Link" reason="Adjacent" />
-    <disable_collisions link1="j1_Link" link2="j4_Link" reason="Never" />
-    <disable_collisions link1="j2_Link" link2="j3_Link" reason="Adjacent" />
-    <disable_collisions link1="j2_Link" link2="j4_Link" reason="Never" />
-    <disable_collisions link1="j3_Link" link2="j4_Link" reason="Adjacent" />
-    <disable_collisions link1="j4_Link" link2="j5_Link" reason="Adjacent" />
-    <disable_collisions link1="j4_Link" link2="j6_Link" reason="Never" />
-    <disable_collisions link1="j5_Link" link2="j6_Link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="j1_Link" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="j2_Link" reason="Never"/>
+    <disable_collisions link1="j1_Link" link2="j2_Link" reason="Adjacent"/>
+    <disable_collisions link1="j1_Link" link2="j4_Link" reason="Never"/>
+    <disable_collisions link1="j2_Link" link2="j3_Link" reason="Adjacent"/>
+    <disable_collisions link1="j2_Link" link2="j4_Link" reason="Never"/>
+    <disable_collisions link1="j3_Link" link2="j4_Link" reason="Adjacent"/>
+    <disable_collisions link1="j4_Link" link2="j5_Link" reason="Adjacent"/>
+    <disable_collisions link1="j4_Link" link2="j6_Link" reason="Never"/>
+    <disable_collisions link1="j5_Link" link2="j6_Link" reason="Adjacent"/>
 </robot>

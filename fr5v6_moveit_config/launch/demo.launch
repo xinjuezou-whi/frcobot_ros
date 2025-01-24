@@ -1,7 +1,7 @@
 <launch>
 
   <!-- urdf and srdf file -->
-  <arg name="urdf_file" default="$(find frcobot_description)/urdf/fr5v6.urdf.xacro"/>
+  <arg name="urdf_file" default="$(find frcobot_description)/urdf/fr_5v6.urdf.xacro"/>
   <arg name="srdf_file" default="$(find fr5v6_moveit_config)/config/fr5v6.srdf"/>
   <arg name="base_link" default="link_0"/>
   <!--<arg name="urdf_file" default="$(find whi_amr_description)/urdf/NaviBOT_L1_chin_combined_diff.urdf.xacro"/>

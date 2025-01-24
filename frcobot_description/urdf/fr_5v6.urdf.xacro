@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- author: xinjue.zou.whi@gmail.com -->
 <robot name="fr5v6" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:include filename="$(find frcobot_description)/urdf/fr5v6.xacro"/>
+  <xacro:include filename="$(find frcobot_description)/urdf/fr_5v6.xacro"/>
 
   <xacro:fr_arm/>
 
